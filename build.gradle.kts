@@ -21,6 +21,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
+	implementation("com.squareup.okhttp3:okhttp:4.10.0")
+	implementation("com.slack.api:bolt-servlet:1.26.1")
 }
 
 tasks.getByName<Test>("test") {
