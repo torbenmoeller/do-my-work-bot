@@ -1,9 +1,11 @@
 plugins {
 	java
 	id("org.springframework.boot") version "2.7.5"
+	id("io.freefair.lombok") version "6.5.1"
 }
 
 apply(plugin = "io.spring.dependency-management")
+apply(plugin = "io.freefair.lombok")
 
 group = "dev.pluvial"
 version = "0.0.1-SNAPSHOT"
@@ -19,6 +21,7 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	implementation("org.springframework.boot:spring-boot-starter-log4j2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	implementation("com.squareup.okhttp3:okhttp:4.10.0")
