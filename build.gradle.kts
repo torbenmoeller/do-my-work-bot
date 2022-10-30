@@ -23,6 +23,7 @@ dependencies {
 	testImplementation("io.projectreactor:reactor-test")
 	implementation("com.squareup.okhttp3:okhttp:4.10.0")
 	implementation("com.slack.api:bolt-servlet:1.26.1")
+	implementation("org.gitlab4j:gitlab4j-api:5.0.1")
 }
 
 tasks.getByName<Test>("test") {
