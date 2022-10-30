@@ -5,11 +5,13 @@ import com.slack.api.methods.MethodsClient;
 import com.slack.api.methods.SlackApiException;
 import com.slack.api.methods.request.chat.ChatPostMessageRequest;
 import com.slack.api.methods.response.chat.ChatPostMessageResponse;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
 @Service
+@Log4j2
 public class SlackService {
 
     private final MethodsClient methods;
@@ -21,6 +23,7 @@ public class SlackService {
     }
 
     public void chatPostMessage(String channel, String message){
+        log.info("post message to chat");
         try {
         ChatPostMessageRequest request = ChatPostMessageRequest.builder()
             .channel(channel)
@@ -28,7 +31,7 @@ public class SlackService {
             .build();
             ChatPostMessageResponse response = methods.chatPostMessage(request);
         } catch (IOException | SlackApiException e) {
-            throw new RuntimeException(e);
+            log.error("Error during post message to chat", e);
         }
     }
 }
